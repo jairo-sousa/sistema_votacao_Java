@@ -179,6 +179,20 @@ public class SistemaVotacao {
         
         boolean aconteceuEmpate = !candidatosEmpatados.equals("");
 
+        // CONTABILIZAÇÃO DOS VOTOS 
+        int votosTotais = votosCandidatoA + votosCandidatoB + votosCandidatoC
+        + votosCandidatoD + votosNulos + votosBrancos;
         
+        System.out.println("Resultados");
+        System.out.println("VOTO            |   QUANTIDADE");
+        System.out.println("A               |   " + votosCandidatoA);
+        System.out.println("B               |   " + votosCandidatoB);
+        System.out.println("C               |   " + votosCandidatoC);
+        System.out.println("D               |   " + votosCandidatoD);
+        System.out.println("Brancos         |   " + votosBrancos);
+        System.out.println("Nulos           |   " + votosNulos);
+        System.out.println("Total de votos  |   " + votosTotais);
+        System.out.println("");
+    
     }
 }
