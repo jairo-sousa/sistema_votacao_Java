@@ -160,6 +160,25 @@ public class SistemaVotacao {
                 System.out.println("Opção inválida!!");
             }
         }
+        
+        // LIDAR COM EMPATES
+        String candidatosEmpatados = "";
+
+        if (votosCandidatoA == maiorQtdVotos && !vencedor.equals("A")) {
+            candidatosEmpatados += ", A";
         }
-    
+        if (votosCandidatoB == maiorQtdVotos && !vencedor.equals("B")) {
+            candidatosEmpatados += ", B";
+        }
+        if (votosCandidatoC == maiorQtdVotos && !vencedor.equals("C")) {
+            candidatosEmpatados += ", C";
+        }
+        if (votosCandidatoD == maiorQtdVotos && !vencedor.equals("D")) {
+            candidatosEmpatados += ", D";
+        }
+        
+        boolean aconteceuEmpate = !candidatosEmpatados.equals("");
+
+        
+    }
 }
