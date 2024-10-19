@@ -48,6 +48,19 @@ public class SistemaVotacao {
                     System.out.println("Senha incorreta!!");
                 }
             }
+            
+             // MOSTRAR AJUDA
+             else if (opcao.equals("A")) {
+                System.out.println("As opções são:\n" +
+                                   "OPÇÃO               |   NÚMERO\n" +
+                                   "Candidato A         |   1\n" +
+                                   "Candidato B         |   2\n" +
+                                   "Candidato C         |   3\n" +
+                                   "Candidato D         |   4\n" +
+                                   "Voto Branco         |   5\n" +
+                                   "Voto Nulo           |   6\n" +
+                                   "Encerrar votação    |   7");
+            }
         }
     }
     
