@@ -31,6 +31,19 @@ public class SistemaVotacao {
         System.out.print("[ SISTEMA DE VOTAÇÃO ]: primeiro uso, crie uma senha: ");
         String senha = teclado.next();
 
+        // CANDIDATOS
+        int votosCandidatoA = 0;
+        int votosCandidatoB = 0;
+        int votosCandidatoC = 0;
+        int votosCandidatoD = 0;
+        
+        // BRANCOS E NULOS
+        int votosBrancos = 0;
+        int votosNulos = 0;
+        
+        String vencedor = "";
+        int maiorQtdVotos = 0;
+
         boolean permitidoVotar = true;
         while (permitidoVotar) {
 
@@ -61,7 +74,92 @@ public class SistemaVotacao {
                                    "Voto Nulo           |   6\n" +
                                    "Encerrar votação    |   7");
             }
+        
+            // CANDIDATOS
+            else if (opcao.equals("1")) {
+                votosCandidatoA++;
+                System.out.println("Voto no candidato A registrado!");
+
+                if (votosCandidatoA > maiorQtdVotos) {
+                    maiorQtdVotos = votosCandidatoA;
+                    vencedor = "A";
+                } 
+                tocarSomConfirmacao();
+                try {
+                    Thread.sleep(1100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            else if (opcao.equals("2")) {
+                votosCandidatoB++;
+                System.out.println("Voto no candidato B registrado!");
+
+                if (votosCandidatoB > maiorQtdVotos) {
+                    maiorQtdVotos = votosCandidatoB;
+                    vencedor = "B";
+                } 
+                tocarSomConfirmacao();
+                try {
+                    Thread.sleep(1100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            else if (opcao.equals("3")) {
+                votosCandidatoC++;
+                System.out.println("Voto no candidato C registrado!");
+
+                if (votosCandidatoC > maiorQtdVotos) {
+                    maiorQtdVotos = votosCandidatoC;
+                    vencedor = "C";
+                } 
+                tocarSomConfirmacao();
+                try {
+                    Thread.sleep(1100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            else if (opcao.equals("4")) {
+                votosCandidatoD++;
+                System.out.println("Voto no candidato D registrado!");
+
+                if (votosCandidatoD > maiorQtdVotos) {
+                    maiorQtdVotos = votosCandidatoD;
+                    vencedor = "D";
+                } 
+                tocarSomConfirmacao();
+                try {
+                    Thread.sleep(1100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            // BRANCOS E NULOS
+            else if (opcao.equals("5")) {
+                votosBrancos++;
+                System.out.println("Voto registrado como BRANCO!");
+                try {
+                    Thread.sleep(1100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            else if (opcao.equals("6")) {
+                votosNulos++;
+                System.out.println("Voto registrado como NULO!");
+                try {
+                    Thread.sleep(1100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            else{
+                System.out.println("Opção inválida!!");
+            }
         }
-    }
+        }
     
 }
