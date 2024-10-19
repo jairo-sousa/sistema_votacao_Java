@@ -2,6 +2,7 @@ package br.senac.exercicios;
 
 import java.io.File;
 import javax.sound.sampled.*;
+import java.util.Scanner;
 
 public class SistemaVotacao {
     public static void tocarSomConfirmacao(){
@@ -24,7 +25,30 @@ public class SistemaVotacao {
         }
     }
     public static void main(String[] args) {
-        // TODO
+        Scanner teclado = new Scanner(System.in);
+
+        // CRIAR SENHA
+        System.out.print("[ SISTEMA DE VOTAÇÃO ]: primeiro uso, crie uma senha: ");
+        String senha = teclado.next();
+
+        boolean permitidoVotar = true;
+        while (permitidoVotar) {
+
+            System.out.println("Digite o n° para votar ou \"A\" para ajuda: ");
+            String opcao = teclado.next().toUpperCase();
+
+            // ENCERRAR VOTAÇÃO
+            if (opcao.equals("7")) {
+                System.out.print("Digite a senha: ");
+                String tentativaSenha = teclado.next();
+                
+                if (tentativaSenha.equals(senha)) {
+                    permitidoVotar = false;
+                }else{
+                    System.out.println("Senha incorreta!!");
+                }
+            }
+        }
     }
     
 }
