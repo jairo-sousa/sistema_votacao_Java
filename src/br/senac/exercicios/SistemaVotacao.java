@@ -6,23 +6,27 @@ import java.util.Scanner;
 
 public class SistemaVotacao {
     public static void tocarSomConfirmacao(){
-        try {
-            File audioFile = new File("audio/confirma.wav");
-            Clip oClip = AudioSystem.getClip();
-            AudioInputStream oStream = AudioSystem.getAudioInputStream(audioFile);
-
-            oClip.open(oStream);
-            oClip.start();
-
-            long duration = oClip.getMicrosecondLength();
-            Thread.sleep(duration / 1000);
-
-            oClip.close();
-            oStream.close();
-        
-        } catch (Exception e) {
-            e.printStackTrace();
+        new Thread(() -> {
+            try {
+                File audioFile = new File("audio/confirma.wav");
+                Clip oClip = AudioSystem.getClip();
+                AudioInputStream oStream = AudioSystem.getAudioInputStream(audioFile);
+    
+                oClip.open(oStream);
+                oClip.start();
+    
+                long duration = oClip.getMicrosecondLength();
+                Thread.sleep(duration / 1000);
+    
+                oClip.close();
+                oStream.close();
+            
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
+        ).start();
     }
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
@@ -85,11 +89,7 @@ public class SistemaVotacao {
                     vencedor = "A";
                 } 
                 tocarSomConfirmacao();
-                try {
-                    Thread.sleep(1100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                
             }
             else if (opcao.equals("2")) {
                 votosCandidatoB++;
@@ -100,11 +100,7 @@ public class SistemaVotacao {
                     vencedor = "B";
                 } 
                 tocarSomConfirmacao();
-                try {
-                    Thread.sleep(1100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                
             }
             else if (opcao.equals("3")) {
                 votosCandidatoC++;
@@ -115,11 +111,7 @@ public class SistemaVotacao {
                     vencedor = "C";
                 } 
                 tocarSomConfirmacao();
-                try {
-                    Thread.sleep(1100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                
             }
             else if (opcao.equals("4")) {
                 votosCandidatoD++;
@@ -130,31 +122,19 @@ public class SistemaVotacao {
                     vencedor = "D";
                 } 
                 tocarSomConfirmacao();
-                try {
-                    Thread.sleep(1100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                
             }
 
             // BRANCOS E NULOS
             else if (opcao.equals("5")) {
                 votosBrancos++;
                 System.out.println("Voto registrado como BRANCO!");
-                try {
-                    Thread.sleep(1100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                
             }
             else if (opcao.equals("6")) {
                 votosNulos++;
                 System.out.println("Voto registrado como NULO!");
-                try {
-                    Thread.sleep(1100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                
             }
             else{
                 System.out.println("Opção inválida!!");
