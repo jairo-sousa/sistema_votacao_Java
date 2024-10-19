@@ -194,5 +194,35 @@ public class SistemaVotacao {
         System.out.println("Total de votos  |   " + votosTotais);
         System.out.println("");
     
+        // VENCEDOR / EMPATES / 2° TURNO
+        double porcentagemMaiorQtdVotos = ((maiorQtdVotos + 0.0) / 
+        votosTotais) * 100;
+
+        double porcentagemUmVoto = (1.0 / votosTotais) * 100;
+        double porcentagemVencerPrimeiroTurno = 50 + porcentagemUmVoto;
+        
+        if (aconteceuEmpate && maiorQtdVotos > 0) {
+            System.out.println("Os candidatos [ " +
+            vencedor + candidatosEmpatados + " ] Empataram!");
+            System.out.println("Empataram com " + maiorQtdVotos + " votos!");
+            System.out.println("Representando " + porcentagemMaiorQtdVotos + "% do votos!");
+        
+        }else if(maiorQtdVotos > 0){
+            boolean venceuPrimeiroTurno = porcentagemMaiorQtdVotos >=
+            porcentagemVencerPrimeiroTurno;
+            
+            if (venceuPrimeiroTurno) {
+                System.out.println("O vencedor foi o candidato " + vencedor + " !");
+                System.out.println("Venceu com " + maiorQtdVotos + " votos!");
+                System.out.println("Representando " + porcentagemMaiorQtdVotos + "% do votos!");    
+            }else{
+                System.out.println("O candidato " + vencedor 
+                + " conseguiu " + porcentagemMaiorQtdVotos + "% dos votos");
+                System.out.println(
+                " então ele vai para o segundo turno junto do segundo mais votado!");
+            }        
+        }else{
+            System.out.println("Nenhum vencedor!");
+        }
     }
 }
