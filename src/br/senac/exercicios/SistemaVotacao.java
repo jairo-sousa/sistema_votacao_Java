@@ -1,14 +1,14 @@
 package br.senac.exercicios;
 
-import java.io.File;
+import java.net.URL;
 import javax.sound.sampled.*;
 
 public class SistemaVotacao {
     public static void tocarSomConfirmacao(){
         try {
-            File audioFile = new File("audio/confirma.wav");
+            URL audioUrl = new URL("https://raw.githubusercontent.com/jairo-sousa/sistema_votacao_Java/refs/heads/main/audio/confirma.wav");
             Clip oClip = AudioSystem.getClip();
-            AudioInputStream oStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioInputStream oStream = AudioSystem.getAudioInputStream(audioUrl);
 
             oClip.open(oStream);
             oClip.start();
@@ -24,7 +24,7 @@ public class SistemaVotacao {
         }
     }
     public static void main(String[] args) {
-        // TODO
+        tocarSomConfirmacao();
     }
     
 }
